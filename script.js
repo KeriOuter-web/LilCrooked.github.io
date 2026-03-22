@@ -52,3 +52,25 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// ========== БУРГЕР-МЕНЮ ==========
+const burgerBtn = document.getElementById('burgerBtn');
+const mainNav = document.getElementById('mainNav');
+
+if (burgerBtn && mainNav) {
+    burgerBtn.addEventListener('click', () => {
+        // Переключаем класс active на кнопке
+        burgerBtn.classList.toggle('active');
+        // Переключаем класс open на меню
+        mainNav.classList.toggle('open');
+    });
+    
+    // Закрываем меню при клике на ссылку (для удобства)
+    const navLinks = mainNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            burgerBtn.classList.remove('active');
+            mainNav.classList.remove('open');
+        });
+    });
+}
