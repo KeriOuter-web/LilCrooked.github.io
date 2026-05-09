@@ -61,7 +61,7 @@ header {
     transition: all 0.3s ease;
 }
 
-/* Анимация при открытом меню */
+/* Анимация при открытом меню (бургер превращается в крестик) */
 .burger-menu.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
 }
@@ -165,7 +165,7 @@ nav ul li a:hover {
     background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
 }
 
-/* Стили для картинок в карточках */
+/* ========== КРУГЛЫЕ КАРТИНКИ В КАРТОЧКАХ ========== */
 .card-image-img {
     width: 150px;
     height: 150px;
@@ -232,44 +232,6 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* ========== СТИЛИ ДЛЯ ВСТУПЛЕНИЯ ========== */
-.intro {
-    padding: 40px 0;
-    background: rgba(255, 255, 255, 0.03);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.intro-content {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.intro-content h2 {
-    font-size: 36px;
-    margin-bottom: 25px;
-    color: #ff6b6b;
-    border-left: none;
-    padding-left: 0;
-}
-
-.intro-content p {
-    font-size: 18px;
-    margin-bottom: 20px;
-    line-height: 1.7;
-}
-
-.quote {
-    font-size: 22px;
-    font-style: italic;
-    color: #4ecdc4;
-    background: rgba(78, 205, 196, 0.1);
-    padding: 20px;
-    border-radius: 15px;
-    margin: 30px 0;
-    border-left: 4px solid #4ecdc4;
-}
-
 /* Подвал */
 footer {
     background: rgba(0, 0, 0, 0.5);
@@ -331,9 +293,99 @@ footer {
     /* Карточки в один столбец */
     .cards {
         grid-template-columns: 1fr;
+    /* ========== СТИЛИ ДЛЯ ВСТУПЛЕНИЯ ========== */
+.intro {
+    padding: 40px 0;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.intro-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro-content h2 {
+    font-size: 36px;
+    margin-bottom: 25px;
+    color: #ff6b6b;
+    border-left: none;
+    padding-left: 0;
+}
+
+.intro-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.quote {
+    font-size: 22px;
+    font-style: italic;
+    color: #4ecdc4;
+    background: rgba(78, 205, 196, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 30px 0;
+    border-left: 4px solid #4ecdc4;
+}
+
+/* Для мобильных */
+@media (max-width: 768px) {
+    /* Герой */
+    .hero h2 {
+        font-size: 32px;
     }
     
-    /* Вступление для мобильных */
+    .hero {
+        padding: 50px 0;
+    }
+    
+    /* Логотип */
+    .logo {
+        text-align: center;
+        display: block;
+    }
+    
+    /* Бургер-меню — показываем */
+    .burger-menu {
+        display: block;
+    }
+    
+    /* Навигация по умолчанию скрыта */
+    nav {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+    
+    /* Когда меню открыто */
+    nav.open {
+        max-height: 300px;
+    }
+    
+    /* Стили для мобильного меню */
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 8px 0;
+        white-space: normal;
+    }
+    
+    /* Карточки в один столбец */
+    .cards {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Стили для вступления на мобильных */
     .intro-content h2 {
         font-size: 28px;
     }
@@ -345,5 +397,7 @@ footer {
     .quote {
         font-size: 18px;
         padding: 15px;
+    }
+}
     }
 }
